@@ -6,7 +6,6 @@ import HeroSection from "./components/HeroSection";
 import "./index.css";
 import AboutMe from "./components/AboutMe";
 import {Projects}  from "./components/Projects";
-import Carousel from "./components/ui/carousel";
 import OrganisedEvents from "./components/OrganisedEvents";
 import SignupFormDemo from "./components/signup-form-demo";
 const App = () => {
