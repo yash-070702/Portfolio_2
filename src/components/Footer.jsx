@@ -2,9 +2,15 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import resume from "../files/Yash_Aaggarwal_Resume_enhanced.pdf";
 import { MdOutlineFileDownload } from "react-icons/md";
+import { motion } from "framer-motion";
 const Footer = () => {
   return (
-    <div className="flex w-9/12 border-t border-gray-600 justify-between !mx-auto !py-3">
+    <motion.div
+   initial={{ opacity: 0, x: -100 }}
+   whileInView={{ opacity: 1, x: 0 }} // Animate to the original position
+   transition={{ duration: 1 }} // Smooth transition
+   viewport={{ once: true }}
+     className="flex w-9/12 border-t border-gray-600 justify-between !mx-auto !py-3">
       <div>
         {" "}
         <a href={resume} download="YashResume.pdf">
@@ -37,7 +43,7 @@ const Footer = () => {
           style={{ width: 30, height: 30 }} // Adjust the size
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
