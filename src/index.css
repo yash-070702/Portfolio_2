@@ -140,3 +140,6 @@
   }
 
 }
+.form-style {
+  @apply rounded-lg bg-[#2c333f] !p-3 text-[16px] leading-[24px] text-[#f1f2ff] shadow-[0_1px_0_0] shadow-white/50 placeholder:text-[#6e727f] focus:outline-none;
+}

@@ -17,11 +17,6 @@ const HeroSection = () => {
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  useEffect(() => {
-    AOS.init({ duration: 10000, easing: "ease-in-out", once: true });
-    AOS.refresh();
-  }, []);
-
 
   useEffect(() => {
     let timeout;
@@ -55,7 +50,6 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        data-aos="fade-down"
         className=" w-9/12 flex flex-row items-center text-[#ffffff9c] !mt-4  justify-between "
       >
         <div className="flex flex-row items-center">

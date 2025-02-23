@@ -7,7 +7,8 @@ import "./index.css";
 import AboutMe from "./components/AboutMe";
 import {Projects}  from "./components/Projects";
 import OrganisedEvents from "./components/OrganisedEvents";
-import SignupFormDemo from "./components/signup-form-demo";
+import Footer from "./components/Footer";
+import ContactUs from "./components/ContactUs";
 const App = () => {
   return (
     <div className="container bg-[#000814] ">
@@ -15,7 +16,8 @@ const App = () => {
       <AboutMe />
     <Projects />
    <OrganisedEvents/>
-   <SignupFormDemo/>
+   <ContactUs/>
+   <Footer/>
 
     </div>
   );
