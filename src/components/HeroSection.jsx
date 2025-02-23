@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
-import icon from "../assets/react.svg";
-import mainImage from "../assets/4.png";
+import logo1 from "../assets/mineImages/logo1.png";
+import mainImage from "../assets/mineImages/heroImage.png";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { IoMail } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa6";
@@ -10,6 +10,8 @@ import AOS from "aos";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import resume from "../files/Yash_Aaggarwal_Resume_enhanced.pdf";
 import Arrow from "../assets/up-arrow.png";
+import { Link } from "react-router-dom";
+import { Projects } from "./Projects";
 const HeroSection = () => {
 
   const text = "Yash Aggarwal";
@@ -52,12 +54,11 @@ const HeroSection = () => {
         transition={{ duration: 1 }}
         className=" w-9/12 flex flex-row items-center text-[#ffffff9c] !mt-4  justify-between "
       >
-        <div className="flex flex-row items-center">
-          <img src={icon} alt="icon" />
-          <div>Yash Aggarwal</div>
+        <div className="flex flex-row items-center !mt-2">
+          <img src={logo1} className="md:w-[120px]" alt="icon" />
         </div>
         <div className="hidden lg:flex lg:flex-row items-center gap-4 text-[1.2rem]">
-          <button type="button">Home</button>
+          <a href=<Projects/>><button type="button">Home</button></a> 
           <button type="button">About</button>
           <button type="button">Projects</button>
           <button type="button">Events</button>

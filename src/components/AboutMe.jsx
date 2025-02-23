@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import CountUp from "react-countup";
-import MyImage from "../assets/about.png"
+import MyImage from "../assets/mineImages/about.png"
 import { IoMail } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { motion } from "framer-motion";
