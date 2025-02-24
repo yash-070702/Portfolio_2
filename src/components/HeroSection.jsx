@@ -8,7 +8,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import AOS from "aos";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import resume from "../files/Yash_Aaggarwal_Resume_enhanced.pdf";
+import resume from "../files/Yash_Aaggarwal_Resume.pdf";
 import Arrow from "../assets/up-arrow.png";
 import { Link } from "react-router-dom";
 import { Projects } from "./Projects";

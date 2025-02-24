@@ -1,6 +1,6 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-import resume from "../files/Yash_Aaggarwal_Resume_enhanced.pdf";
+import resume from "../files/Yash_Aaggarwal_Resume.pdf";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { motion } from "framer-motion";
 const Footer = () => {

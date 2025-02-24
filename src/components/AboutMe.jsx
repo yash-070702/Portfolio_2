@@ -4,7 +4,7 @@ import MyImage from "../assets/mineImages/about.png";
 import { IoMail } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { motion } from "framer-motion";
-import resume from "../files/Yash_Aaggarwal_Resume_enhanced.pdf";
+import resume from "../files/Yash_Aaggarwal_Resume.pdf";
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef(null);
