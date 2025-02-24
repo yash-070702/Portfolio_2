@@ -7,12 +7,16 @@ import {Projects}  from "./components/Projects";
 import OrganisedEvents from "./components/OrganisedEvents";
 import Footer from "./components/Footer";
 import ContactUs from "./components/ContactUs";
+import Blob from "./components/Blob";
+import Skills from "./components/Skills";
 const App = () => {
   return (
     <div className="container bg-[#000814] ">
+    <Blob />
       <HeroSection />
       <AboutMe />
     <Projects />
+    <Skills/>
    <OrganisedEvents/>
    <ContactUs/>
    <Footer/>

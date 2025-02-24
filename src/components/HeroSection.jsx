@@ -13,12 +13,10 @@ import Arrow from "../assets/up-arrow.png";
 import { Link } from "react-router-dom";
 import { Projects } from "./Projects";
 const HeroSection = () => {
-
   const text = "Yash Aggarwal";
   const [displayedText, setDisplayedText] = useState("");
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
 
   useEffect(() => {
     let timeout;
@@ -58,7 +56,9 @@ const HeroSection = () => {
           <img src={logo1} className="md:w-[120px]" alt="icon" />
         </div>
         <div className="hidden lg:flex lg:flex-row items-center gap-4 text-[1.2rem]">
-          <a href=<Projects/>><button type="button">Home</button></a> 
+          <a href=<Projects />>
+            <button type="button">Home</button>
+          </a>
           <button type="button">About</button>
           <button type="button">Projects</button>
           <button type="button">Events</button>
@@ -67,9 +67,7 @@ const HeroSection = () => {
       </motion.nav>
 
       {/* Main Profile Section */}
-      <div
-        className="flex flex-col md:flex-row items-center justify-between  md:w-9/12 !mt-10 md:!mt-20 "
-      >
+      <div className="flex flex-col md:flex-row items-center justify-between  md:w-9/12 !mt-10 md:!mt-20 ">
         <motion.div
           initial={{ x: "-100vw", opacity: 0 }} // Start off-screen (left)
           animate={{ x: 0, opacity: 1 }} // Move to normal position
@@ -91,7 +89,6 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="flex gap-4 justify-center md:justify-start !mt-10 ">
-
             <a href={resume} download="YashResume.pdf">
               <button
                 type="button"
@@ -101,13 +98,12 @@ const HeroSection = () => {
                 <MdOutlineFileDownload />
               </button>
             </a>
-            <button
-              type="button"
-              className="flex gap-2 items-center text-white text-xs md:text-base !px-3 md:!px-5 md:!py-2 rounded-3xl border border-[#ffffff9c]  "
-            >
+            <a href="mailto:yashaggarwal2002.ya@gmail.com" className="flex gap-2 items-center text-white text-xs md:text-base !px-3 md:!px-5 md:!py-2 rounded-3xl border border-[#ffffff9c]  ">
+
               <p>Contact Me</p>
               <IoMail />
-            </button>
+            </a>
+            
           </div>
         </motion.div>
 
@@ -153,21 +149,20 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Down */}
-      <motion.div 
-      className=" hidden md:absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      animate={{ y: [0, 10, 0] }}
-      transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-    >
-     <ChevronDownIcon className="w-10 h-10 text-white" />
-    </motion.div>
+      <motion.div
+        className=" hidden md:absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+      >
+        <ChevronDownIcon className="w-10 h-10 text-white" />
+      </motion.div>
 
-    <div 
-      className=" fixed bottom-10 right-7 transform -translate-x-1/2"
-     
-     
-    >
-      <a href="#herosection"> <img src={Arrow} className="w-[20px] md:w-[50px] !z-1000" /></a>
-    </div>
+      <div className=" fixed bottom-10 right-7 transform -translate-x-1/2">
+        <a href="#herosection">
+          {" "}
+          <img src={Arrow} className="w-[20px] md:w-[50px] !z-1000" />
+        </a>
+      </div>
     </div>
   );
 };
