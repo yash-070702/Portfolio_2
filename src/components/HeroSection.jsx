@@ -84,8 +84,7 @@ const HeroSection = () => {
               <p className="text-[#3fd5f3]">{displayedText}</p>
             </div>
             <div className="text-[#ffffff9c] !mx-5 text-center md:!mx-0 md:text-start text-[1.2rem]">
-              hello i am a web developer working for a voxera consultancy and
-              building my own platform{" "}
+            A passionate MERN stack developer, innovator, and problem solver, constantly pushing the boundaries of web development.{" "}
             </div>
           </div>
           <div className="flex gap-4 justify-center md:justify-start !mt-10 ">
