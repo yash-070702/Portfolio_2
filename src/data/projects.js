@@ -1,7 +1,7 @@
 import StudyNotion from "../assets/projectImage/StudyNotion.png";
 import Voxera from "../assets/projectImage/Voxera.png";
 import KTS from "../assets/projectImage/KTS.jpg";
-import CodeHive from "../assets/projectImage/codeHive.webp";
+import CodeHive from "../assets/projectImage/codehive.webp";
 import WeatherApp from "../assets/projectImage/WeatherApp.png";
 import QuizApp from "../assets/projectImage/QuizApp.png";
 
