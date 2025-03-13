@@ -1,6 +1,7 @@
  import NASAApp from "../assets/eventsImage/Nasa_app_challenge.jpg";
  import PixelToCode from "../assets/eventsImage/PixelToCode.jpg";
  import KodeKombat from "../assets/eventsImage/KodeKombat.jpg";
+ import Loading from "../assets/projectImage/codehive.webp";
  export const eventsData = [
     {
       title: "NASA Space App Challenge",
@@ -19,6 +20,12 @@
       button: "Read More",
       src: KodeKombat,
       Description:"Kode Kombat 4.0 is the coding competition, organized by the Kinesis Technical Society at KIET Group of Institutions on December 8, 2024. This intra-college event brings together talented B.Tech students from various years to test their problem-solving abilities in a competitive environment.To reward excellence, the top three performers from each academic year receive exciting goodies, exclusive gifts, and certificates, making the event both prestigious and memorable",
+    },
+    {
+      title: "Something very different",
+      button: "Read More",
+      src: Loading,
+      Description:"COMING SOON ",
     },
 
   ];
