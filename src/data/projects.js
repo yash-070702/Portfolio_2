@@ -14,7 +14,7 @@ export const projectData=[
         Description:"StudyNotion is an innovative EdTech platform designed to enhance online learning through interactive courses, real-time progress tracking, and a seamless user experience....",
     }
     ,
-    {   Name:"Voxera",
+    {   Name:"Voxera(Building)",
         SubHeading:"A RealTime Chat Platform",
         image:Voxera,
         url:"https://studynotion-yash-aggarwal.vercel.app/",
@@ -27,10 +27,10 @@ export const projectData=[
         Description:"Voxera is a real-time chat platform designed for seamless. It enables users to send messages, share media, in real-time conversations with a smooth and intuitive interface.....",
     },
     {
-        Name:"CodeHive(Building}",
+        Name:"CodeHive",
         SubHeading:"A Knowledge-Sharing Platform for Developers",
         image:CodeHive,
-        // url:"Your Project URL",
+       url:"codehive-yash-aggarwal.vercel.app",
         Description:"CodeHive is a dynamic Q&A platform designed for seamless knowledge sharing. It enables users to ask questions, provide answers. With features like upvoting, answer acceptance, and real-time interactions...."
     }
     ,
