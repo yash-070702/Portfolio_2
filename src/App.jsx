@@ -10,6 +10,9 @@ import ContactUs from "./components/ContactUs";
 import Blob from "./components/Blob";
 import Skills from "./components/Skills";
 
+import LeetCodeHeatmap from "./components/LeetcodeHeatMap";
+
+
 const App = () => {
   return (
     <div className="container bg-[#000814] ">
@@ -18,6 +21,7 @@ const App = () => {
       <AboutMe />
     <Projects />
     <Skills/>
+    <LeetCodeHeatmap username="y_a_s_h_07"/>
    <OrganisedEvents/>
    <ContactUs/>
    
@@ -26,5 +30,4 @@ const App = () => {
 
   );
 };
-// bg-gradient-to-b from-[#103a79] via-[#126bfa] to-[#1c2d6c]
 export default App;

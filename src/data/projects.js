@@ -23,14 +23,14 @@ export const projectData=[
     {   Name:"KTS",
         SubHeading:" Kinesis Technical Society",
         image:KTS,
-        url:"https://studynotion-yash-aggarwal.vercel.app/",
+        url:"https://kts-website.netlify.app/",
         Description:"Voxera is a real-time chat platform designed for seamless. It enables users to send messages, share media, in real-time conversations with a smooth and intuitive interface.....",
     },
     {
         Name:"CodeHive",
         SubHeading:"A Knowledge-Sharing Platform for Developers",
         image:CodeHive,
-       url:"codehive-yash-aggarwal.vercel.app",
+        url:"codehive-yash-aggarwal.vercel.app",
         Description:"CodeHive is a dynamic Q&A platform designed for seamless knowledge sharing. It enables users to ask questions, provide answers. With features like upvoting, answer acceptance, and real-time interactions...."
     }
     ,

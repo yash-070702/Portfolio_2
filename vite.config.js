@@ -13,5 +13,12 @@ export default defineConfig({
   server: {
     host: true, // Exposes the server on your local network
     port: 3000, // (Optional) You can set the port here
+    proxy: {
+      '/api/leetcode': {
+        target: 'https://leetcode-stats-api.herokuapp.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/leetcode/, ''),
+      },
+    },
   },
 })

@@ -153,4 +153,5 @@
   filter: blur(10px);
   pointer-events: none; /* So it doesn't interfere with clicks */
   z-index: 999;
+
 }
