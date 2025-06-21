@@ -11,12 +11,19 @@ import {
 const LeetcodeHeatMap = ({ username }) => {
   const [stats, setStats] = useState(null);
 
+  // useEffect(() => {
+  //   fetch(`/api/leetcode/${username}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setStats(data))
+  //     .catch((err) => console.error(err));
+  // }, [username]);
   useEffect(() => {
-    fetch(`/api/leetcode/${username}`)
-      .then((res) => res.json())
-      .then((data) => setStats(data))
-      .catch((err) => console.error(err));
-  }, [username]);
+  fetch(`https://leetcode-stats-api.herokuapp.com/${username}`)
+    .then((res) => res.json())
+    .then((data) => setStats(data))
+    .catch((err) => console.error(err));
+}, [username]);
+
 
   if (!stats)
     return <p className="text-center text-white">Loading LeetCode stats...</p>;
