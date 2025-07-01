@@ -62,7 +62,7 @@ const AboutMe = () => {
               </div>
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-amber-50">
-                  {isVisible && <CountUp start={0} end={550} duration={3} />}+
+                  {isVisible && <CountUp start={0} end={600} duration={3} />}+
                 </h3>
                 <p className="text-lg text-[#ffffff9c]">Problem Solved</p>
               </div>
