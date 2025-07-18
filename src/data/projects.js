@@ -4,6 +4,7 @@ import KTS from "../assets/projectImage/KTS.jpg";
 import CodeHive from "../assets/projectImage/codehive.png";
 import WeatherApp from "../assets/projectImage/WeatherApp.png";
 import QuizApp from "../assets/projectImage/QuizApp.png";
+import Codash from "../assets/projectImage/Codash.png";
 
 
 export const projectData=[
@@ -12,8 +13,14 @@ export const projectData=[
         image:StudyNotion,
         url:"https://studynotion-yash-aggarwal.vercel.app/",
         Description:"StudyNotion is an innovative EdTech platform designed to enhance online learning through interactive courses, real-time progress tracking, and a seamless user experience....",
-    }
-    ,
+    },
+     {   Name:"Codash",
+        SubHeading:"A Coding Analytics Platform",
+        image:Codash,
+        url:"https://codash.netlify.app/",
+        Description:"Codash is a coding analytics platform that tracks and visualizes your progress across LeetCode, Codeforces, and similar sites. It offers real-time stats, AI-powered insights, and personalized suggestions to help developers improve efficiently..... "
+    },
+    
     {   Name:"Voxera(Building)",
         SubHeading:"A RealTime Chat Platform",
         image:Voxera,
@@ -28,7 +35,7 @@ export const projectData=[
     },
     {
         Name:"CodeHive",
-        SubHeading:"A Knowledge-Sharing Platform for Developers",
+        SubHeading:"A Knowledge-Sharing Platform",
         image:CodeHive,
         url:"codehive-yash-aggarwal.vercel.app",
         Description:"CodeHive is a dynamic Q&A platform designed for seamless knowledge sharing. It enables users to ask questions, provide answers. With features like upvoting, answer acceptance, and real-time interactions...."
