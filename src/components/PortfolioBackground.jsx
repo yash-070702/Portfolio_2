@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import React from "react";
+
 const PortfolioBackground = ({ children }) => {
   return (
     <div className="min-h-screen relative overflow-hidden">
