@@ -23,40 +23,87 @@ const LeetCodeHeatMap = ({ username }) => {
     },
   };
 
-  useEffect(() => {
     const fetchStats = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        
-        // Simulated data for demo purposes
-        const mockData = {
-          username: username,
-          totalSolved: 342,
-          easySolved: 156,
-          mediumSolved: 128,
-          hardSolved: 58,
-          totalQuestions: 3000,
-          easyQuestions: 800,
-          mediumQuestions: 1600,
-          hardQuestions: 600
-        };
-        
-        setTimeout(() => {
-          setStats(mockData);
-          setLoading(false);
-        }, 1000);
-        
-      } catch (err) {
-        setError("Failed to fetch LeetCode stats");
-        setLoading(false);
-      }
-    };
+    try {
+      setLoading(true);
+      setError(null);
 
-    fetchStats();
+      const query = `
+        query getUserProfile($username: String!) {
+          allQuestionsCount {
+            difficulty
+            count
+          }
+          matchedUser(username: $username) {
+            username
+            submitStats {
+              acSubmissionNum {
+                difficulty
+                count
+              }
+            }
+          }
+        }
+      `;
+
+      const response = await fetch("https://leetcode.com/graphql", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query,
+          variables: {
+            username: username
+          }
+        })
+      });
+
+      const data = await response.json();
+
+      const submissionData = data.data?.matchedUser?.submitStats?.acSubmissionNum || [];
+      const totalData = data.data?.allQuestionsCount || [];
+
+      const easySolved = submissionData.find(item => item.difficulty === "Easy")?.count || 0;
+      const mediumSolved = submissionData.find(item => item.difficulty === "Medium")?.count || 0;
+      const hardSolved = submissionData.find(item => item.difficulty === "Hard")?.count || 0;
+      const totalSolved = easySolved + mediumSolved + hardSolved;
+
+      const totalEasy = totalData.find(item => item.difficulty === "Easy")?.count || 0;
+      const totalMedium = totalData.find(item => item.difficulty === "Medium")?.count || 0;
+      const totalHard = totalData.find(item => item.difficulty === "Hard")?.count || 0;
+      const totalQuestions = totalEasy + totalMedium + totalHard;
+
+      const fetchedData = {
+        username,
+        totalSolved,
+        easySolved,
+        mediumSolved,
+        hardSolved,
+        totalQuestions,
+        totalEasy,
+        totalMedium,
+        totalHard
+      };
+
+      setStats(fetchedData);
+      setLoading(false);
+
+    } catch (err) {
+      console.error(err);
+      setError("Failed to fetch LeetCode stats.");
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (username) {
+      fetchStats();
+    }
   }, [username]);
 
   useEffect(() => {
+   
     if (stats && chartRef.current) {
       if (chartInstance.current) {
         chartInstance.current.destroy();
@@ -153,7 +200,7 @@ const LeetCodeHeatMap = ({ username }) => {
       },
     },
   };
-
+console.log(stats);
   if (loading) {
     return (
       <div className="w-full max-w-4xl mx-auto bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-6 flex items-center justify-center">
