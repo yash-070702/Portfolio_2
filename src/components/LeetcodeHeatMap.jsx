@@ -23,78 +23,75 @@ const LeetCodeHeatMap = ({ username }) => {
     },
   };
 
-    const fetchStats = async () => {
-    try {
-      setLoading(true);
-      setError(null);
+const fetchStats = async () => {
+  try {
+    setLoading(true);
+    setError(null);
 
-      const query = `
-        query getUserProfile($username: String!) {
-          allQuestionsCount {
-            difficulty
-            count
-          }
-          matchedUser(username: $username) {
-            username
-            submitStats {
-              acSubmissionNum {
-                difficulty
-                count
-              }
+    const query = `
+      query userProblemsSolved($username: String!) {
+        matchedUser(username: $username) {
+          submitStatsGlobal {
+            acSubmissionNum {
+              difficulty
+              count
             }
           }
         }
-      `;
+        allQuestionsCount {
+          difficulty
+          count
+        }
+      }
+    `;
 
-      const response = await fetch("https://leetcode.com/graphql", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          query,
-          variables: {
-            username: username
-          }
-        })
-      });
+    const response = await fetch("https://leetcode.com/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query,
+        variables: { username }
+      }),
+    });
 
-      const data = await response.json();
+    const data = await response.json();
 
-      const submissionData = data.data?.matchedUser?.submitStats?.acSubmissionNum || [];
-      const totalData = data.data?.allQuestionsCount || [];
+    const submissionData = data.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum || [];
+    const totalData = data.data?.allQuestionsCount || [];
 
-      const easySolved = submissionData.find(item => item.difficulty === "Easy")?.count || 0;
-      const mediumSolved = submissionData.find(item => item.difficulty === "Medium")?.count || 0;
-      const hardSolved = submissionData.find(item => item.difficulty === "Hard")?.count || 0;
-      const totalSolved = easySolved + mediumSolved + hardSolved;
+    const easySolved = submissionData.find(item => item.difficulty === "Easy")?.count || 0;
+    const mediumSolved = submissionData.find(item => item.difficulty === "Medium")?.count || 0;
+    const hardSolved = submissionData.find(item => item.difficulty === "Hard")?.count || 0;
+    const totalSolved = easySolved + mediumSolved + hardSolved;
 
-      const totalEasy = totalData.find(item => item.difficulty === "Easy")?.count || 0;
-      const totalMedium = totalData.find(item => item.difficulty === "Medium")?.count || 0;
-      const totalHard = totalData.find(item => item.difficulty === "Hard")?.count || 0;
-      const totalQuestions = totalEasy + totalMedium + totalHard;
+    const totalEasy = totalData.find(item => item.difficulty === "Easy")?.count || 0;
+    const totalMedium = totalData.find(item => item.difficulty === "Medium")?.count || 0;
+    const totalHard = totalData.find(item => item.difficulty === "Hard")?.count || 0;
+    const totalQuestions = totalEasy + totalMedium + totalHard;
 
-      const fetchedData = {
-        username,
-        totalSolved,
-        easySolved,
-        mediumSolved,
-        hardSolved,
-        totalQuestions,
-        totalEasy,
-        totalMedium,
-        totalHard
-      };
+    const fetchedData = {
+      username,
+      totalSolved,
+      easySolved,
+      mediumSolved,
+      hardSolved,
+      totalQuestions,
+      totalEasy,
+      totalMedium,
+      totalHard
+    };
 
-      setStats(fetchedData);
-      setLoading(false);
+    setStats(fetchedData);
+    setLoading(false);
+  } catch (err) {
+    console.error(err);
+    setError("Failed to fetch LeetCode stats.");
+    setLoading(false);
+  }
+};
 
-    } catch (err) {
-      console.error(err);
-      setError("Failed to fetch LeetCode stats.");
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
     if (username) {
