@@ -71,6 +71,7 @@ const fetchStats = async () => {
     };
 
     setStats(fetchedData);
+    console.log(fetchedData);
     setLoading(false);
   } catch (err) {
     console.error(err);
@@ -353,9 +354,9 @@ console.log(stats);
                 <div className="mt-6 space-y-3">
                   <h4 className="text-sm font-semibold text-white mb-3">Progress</h4>
                   {[
-                    { label: 'Easy', solved: stats?.easySolved || 0, total: 800, color: 'bg-green-500' },
-                    { label: 'Medium', solved: stats?.mediumSolved || 0, total: 1600, color: 'bg-yellow-500' },
-                    { label: 'Hard', solved: stats?.hardSolved || 0, total: 600, color: 'bg-red-500' }
+                    { label: 'Easy', solved: stats?.easySolved || 0, total: stats?.totalEasy || 0, color: 'bg-green-500' },
+                    { label: 'Medium', solved: stats?.mediumSolved || 0, total: stats?.totalMedium || 0, color: 'bg-yellow-500' },
+                    { label: 'Hard', solved: stats?.hardSolved || 0, total: stats?.totalHard || 0, color: 'bg-red-500' }
                   ].map((progress) => (
                     <div key={progress.label} className="space-y-1">
                       <div className="flex justify-between text-xs text-white/70">
