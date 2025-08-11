@@ -28,47 +28,34 @@ const fetchStats = async () => {
     setLoading(true);
     setError(null);
 
-    const query = `
-      query userProblemsSolved($username: String!) {
-        matchedUser(username: $username) {
-          submitStatsGlobal {
-            acSubmissionNum {
-              difficulty
-              count
-            }
-          }
-        }
-        allQuestionsCount {
-          difficulty
-          count
-        }
-      }
-    `;
+   
 
-    const response = await fetch("https://leetcode.com/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query,
-        variables: { username }
-      }),
-    });
+    const response = await fetch(`https://codash-next.vercel.app/api/platform/getLeetCodeDetails/${username}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+
+    }
+    if (response.status === 404) {
+      throw new Error("User not found on LeetCode");
+    }
+
+
 
     const data = await response.json();
+    console.log(data);
+   
 
-    const submissionData = data.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum || [];
-    const totalData = data.data?.allQuestionsCount || [];
+    const submissionData = data?.submissions || [];
+    const totalData = data?.leetCodeStats || [];
 
-    const easySolved = submissionData.find(item => item.difficulty === "Easy")?.count || 0;
-    const mediumSolved = submissionData.find(item => item.difficulty === "Medium")?.count || 0;
-    const hardSolved = submissionData.find(item => item.difficulty === "Hard")?.count || 0;
+    const easySolved = submissionData?.Easy || 0;
+    const mediumSolved =  submissionData?.Medium|| 0;
+    const hardSolved = submissionData?.Hard || 0;
     const totalSolved = easySolved + mediumSolved + hardSolved;
 
-    const totalEasy = totalData.find(item => item.difficulty === "Easy")?.count || 0;
-    const totalMedium = totalData.find(item => item.difficulty === "Medium")?.count || 0;
-    const totalHard = totalData.find(item => item.difficulty === "Hard")?.count || 0;
+    const totalEasy = totalData?.easy || 0;
+    const totalMedium = totalData?.medium || 0;
+    const totalHard = totalData?.hard|| 0;
     const totalQuestions = totalEasy + totalMedium + totalHard;
 
     const fetchedData = {
