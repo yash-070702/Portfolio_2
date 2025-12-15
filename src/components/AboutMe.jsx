@@ -217,7 +217,7 @@ const AboutMe = () => {
                     className="text-2xl md:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
                     whileHover={{ scale: 1.1 }}
                   >
-                    {isVisible && <CountUp start={0} end={1000} duration={3} />}+
+                    {isVisible && <CountUp start={0} end={1100} duration={3} />}+
                   </motion.h3>
                   <p className="text-sm md:text-base text-white/70 mt-2">Problems Solved</p>
                 </div>

@@ -354,7 +354,7 @@ const App = () => {
         <Projects />
       </section>
       <Skills />
-      <LeetCodeHeatmap username="y_a_s_h_07" />
+      {/* <LeetCodeHeatmap username="y_a_s_h_07" /> */}
       <section id="events">
         <OrganisedEvents />
       </section>
